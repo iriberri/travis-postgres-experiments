@@ -6,6 +6,7 @@ services:
 before_script:
   - psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres
   - psql -c 'CREATE DATABASE iriberri;' -U postgres
+  - psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres -d iriberri
 
 install:
   - true
