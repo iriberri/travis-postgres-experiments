@@ -13,7 +13,7 @@ install:
 script: 
   - psql -c 'SHOW search_path;' -U postgres
   - psql -c 'SELECT uuid_generate_v1();' -U postgres
-  - psql -c 'SELECT "uuid-ossp".uuid_generate_v1();' -U postgres
+  - psql -c 'SELECT uuid_generate_v1();' -U postgres -d iriberri
 
 
 dist: precise
