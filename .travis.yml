@@ -1,0 +1,20 @@
+language: python
+python: 3.6
+services:
+  - postgres
+
+before_script:
+  - psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres
+  - psql -c 'CREATE DATABASE iriberri;' -U postgres
+
+install:
+  - true
+
+script: 
+  - psql -c 'SHOW search_path;' -U postgres
+  - psql -c 'SELECT uuid_generate_v1();' -U postgres
+  - psql -c 'SELECT "uuid-ossp".uuid_generate_v1();' -U postgres
+
+
+dist: precise
+os: linux
