@@ -4,6 +4,7 @@ services:
   - postgres
 
 before_script:
+  - psql -c 'SELECT datname FROM pg_database WHERE datistemplate = false;'  -U postgres
   - psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres
   - psql -c 'CREATE DATABASE iriberri;' -U postgres
   - psql -c 'CREATE EXTENSION "uuid-ossp";' -U postgres -d iriberri
